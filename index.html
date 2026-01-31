@@ -10,9 +10,37 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        
+        /* Configuração da Imagem de Fundo do Hero */
+        .hero-section {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* TROQUE A URL ABAIXO PELA SUA IMAGEM */
+            background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
         }
+
+        /* Overlay para transparência e leitura do texto */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(59, 130, 246, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .card-hover:hover {
             transform: translateY(-5px);
             transition: all 0.3s ease;
@@ -22,7 +50,7 @@
 <body class="bg-slate-50 text-slate-900">
 
     <!-- Header / Nav -->
-    <nav class="bg-white border-b sticky top-0 z-50">
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
@@ -44,20 +72,21 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20 px-4">
-        <div class="max-w-7xl mx-auto text-center">
+    <!-- Hero Section com Imagem e Overlay -->
+    <section class="hero-section text-white px-4">
+        <div class="hero-overlay"></div>
+        <div class="max-w-7xl mx-auto text-center hero-content">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
                 Aceleradora de Dignidade Humana <br> e Profissional
             </h1>
-            <p class="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto font-light">
-                aqui você encontra como retomar um novo horizonte de possibilidades para você.
+            <p class="text-xl md:text-2xl text-blue-50 mb-10 max-w-4xl mx-auto font-light leading-relaxed">
+                Aqui é um lugar para encontrar como retomar os rumos e direções da sua vida para um <span class="text-orange-400 font-extrabold underline decoration-orange-500/30">Horizonte Novo</span>.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/5531999572799?text=Olá! Sou imigrante e quero saber mais sobre o apoio da Horizonte Novo" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center gap-2">
+                <a href="https://wa.me/5531999572799?text=Olá! Sou imigrante e quero saber mais sobre o apoio da Horizonte Novo" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl flex items-center gap-2">
                     <i data-lucide="user-plus"></i> Sou Imigrante/Refugiado
                 </a>
-                <a href="https://wa.me/5531999572799?text=sou%20empresa%20e%20gostei%20do%20projeto%20como%20posso%20participar" target="_blank" class="bg-white hover:bg-slate-100 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center gap-2">
+                <a href="https://wa.me/5531999572799?text=sou%20empresa%20e%20gostei%20do%20projeto%20como%20posso%20participar" target="_blank" class="bg-white hover:bg-slate-100 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg shadow-2xl flex items-center gap-2">
                     <i data-lucide="building"></i> Sou Empresa Parceira
                 </a>
             </div>
@@ -77,7 +106,7 @@
                         <i data-lucide="file-warning"></i>
                     </div>
                     <h3 class="font-bold mb-2">Invisibilidade</h3>
-                    <p class="text-sm text-slate-600">Dificuldade extrema na validação de certidões e antecedentes.</p>
+                    <p class="text-sm text-slate-600">Dificuldade extrema na validação de documentos globais.</p>
                 </div>
                 <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 card-hover">
                     <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-4">
@@ -91,48 +120,55 @@
                         <i data-lucide="briefcase"></i>
                     </div>
                     <h3 class="font-bold mb-2">Desemprego</h3>
-                    <p class="text-sm text-slate-600">Falta de histórico local e preconceito no recrutamento.</p>
+                    <p class="text-sm text-slate-600">Falta de histórico local e preconceito estrutural.</p>
                 </div>
                 <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 card-hover">
                     <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4">
                         <i data-lucide="map-pin"></i>
                     </div>
                     <h3 class="font-bold mb-2">Logística</h3>
-                    <p class="text-sm text-slate-600">Ausência de moradia imediata e crédito para subsistência.</p>
+                    <p class="text-sm text-slate-600">Ausência de moradia imediata e suporte no desembarque.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tecnologia Section -->
+    <!-- Tecnologia Section (Inovação Financeira e Social) -->
     <section id="tecnologia" class="py-20 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold mb-6">Inovação Financeira e Social</h2>
                     <p class="text-slate-400 mb-8 leading-relaxed">
-                        Integramos tecnologias emergentes para criar um sistema de confiança inquebrável e suporte financeiro imediato via cripmoedas.
+                        Aplicamos I.A motor Veridicus I.A e AlfrebroCoin para seu sucesso, garantindo agilidade e transparência em cada etapa do recomeço.
                     </p>
                     <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="coins" class="text-blue-400 shrink-0"></i>
-                            <div>
-                                <strong class="text-white block">Ecossistema AlfrebroCoin</strong>
-                                <span class="text-sm text-slate-400">Nossa moeda digital de utilidade para pagamentos e recompensas dentro do Hub.</span>
-                            </div>
-                        </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="brain" class="text-blue-400 shrink-0"></i>
                             <div>
                                 <strong class="text-white block">Motor Veridicus I.A</strong>
-                                <span class="text-sm text-slate-400">Verificação instantânea de antecedentes e autenticidade documental global.</span>
+                                <span class="text-sm text-slate-400">Verificação inteligente de conformidade jurídica para documentos estrangeiros.</span>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="link" class="text-blue-400 shrink-0"></i>
+                            <i data-lucide="coins" class="text-blue-400 shrink-0"></i>
                             <div>
-                                <strong class="text-white block">Cripmoedas Microcrédito</strong>
-                                <span class="text-sm text-slate-400">Desembolso rápido de capital para ferramentas de trabalho sem burocracia bancária.</span>
+                                <strong class="text-white block">AlfrebroCoin</strong>
+                                <span class="text-sm text-slate-400">Moeda de utilidade para recompensas e incentivos no ecossistema Horizonte Novo.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="banknote" class="text-blue-400 shrink-0"></i>
+                            <div>
+                                <strong class="text-white block">Microcrédito</strong>
+                                <span class="text-sm text-slate-400">Linhas de crédito social para compra de ferramentas e insumos iniciais.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="truck" class="text-blue-400 shrink-0"></i>
+                            <div>
+                                <strong class="text-white block">Logística: Transporte e Hospedagem</strong>
+                                <span class="text-sm text-slate-400">Gestão completa do acolhimento, passagens e rede de hospedagem facilitada.</span>
                             </div>
                         </li>
                     </ul>
@@ -146,13 +182,9 @@
                         <div class="text-3xl font-bold text-orange-400 mb-1">100%</div>
                         <p class="text-xs text-slate-500 uppercase tracking-widest">Segurança Jurídica</p>
                     </div>
-                    <div class="bg-slate-800 p-8 rounded-3xl text-center border border-slate-700">
-                        <div class="text-3xl font-bold text-green-400 mb-1">Instant</div>
-                        <p class="text-xs text-slate-500 uppercase tracking-widest">Transação On-chain</p>
-                    </div>
-                    <div class="bg-slate-800 p-8 rounded-3xl text-center border border-slate-700">
-                        <div class="text-2xl font-bold text-purple-400 mb-1 leading-tight">AlfrebroCoin</div>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest">Cripmoedas Microcrédito</p>
+                    <div class="bg-slate-800 p-8 rounded-3xl text-center border border-slate-700 col-span-2">
+                        <div class="text-xl font-bold text-green-400 mb-1">Inovação Logística e Financeira</div>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest">Eixo Central AlfrebroCoin</p>
                     </div>
                 </div>
             </div>
@@ -170,19 +202,19 @@
                 <div class="bg-white p-8 rounded-2xl shadow-sm border card-hover">
                     <i data-lucide="shield-check" class="text-blue-600 mb-4 h-8 w-8"></i>
                     <h3 class="text-xl font-bold mb-3">Compliance Civil</h3>
-                    <p class="text-slate-600 text-sm mb-4">Regularização documental apoiada pela tecnologia Veridicus I.A para garantir conformidade imediata.</p>
+                    <p class="text-slate-600 text-sm mb-4">Auditoria documental completa com apoio jurídico especializado para regularização imediata.</p>
                 </div>
                 <!-- Card 2 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border card-hover">
                     <i data-lucide="graduation-cap" class="text-blue-600 mb-4 h-8 w-8"></i>
                     <h3 class="text-xl font-bold mb-3">Academy Horizonte</h3>
-                    <p class="text-slate-600 text-sm mb-4">Capacitação em logística e aviação, com certificados registrados em blockchain via AlfrebroCoin.</p>
+                    <p class="text-slate-600 text-sm mb-4">Capacitação técnica em logística, aviação e português funcional para inserção no mercado.</p>
                 </div>
                 <!-- Card 3 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border card-hover">
-                    <i data-lucide="piggy-bank" class="text-blue-600 mb-4 h-8 w-8"></i>
-                    <h3 class="text-xl font-bold mb-3">Fintech Recomeço</h3>
-                    <p class="text-slate-600 text-sm mb-4">Linhas de **cripmoedas microcrédito** para compra de insumos e ferramentas, pagas via nossa plataforma digital.</p>
+                    <i data-lucide="home" class="text-blue-600 mb-4 h-8 w-8"></i>
+                    <h3 class="text-xl font-bold mb-3">Acolhimento Logístico</h3>
+                    <p class="text-slate-600 text-sm mb-4">Gestão de transporte e hospedagem para garantir a dignidade no momento do desembarque.</p>
                 </div>
             </div>
         </div>
